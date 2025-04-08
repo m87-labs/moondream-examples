@@ -15,7 +15,9 @@ Get started with Moondream's vision AI in Python in minutes.
    pip install -r requirements.txt
    ```
 
-3. Run the examples to see Moondream in action!
+3. Tweak the `main.py` code if you want to run on cloud
+
+4. Run the examples to see Moondream in action!
 
    ```bash
    python main.py

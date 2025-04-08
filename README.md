@@ -15,7 +15,7 @@ Moondream is a state-of-the-art Vision Language Model that combines multiple vis
 
 #### Prerequisites
 
-The examples in this project work with Python, Node, and Bash/cURL. Most examples are configured to run against moondream locally using the [Moondream Server](https://moondream.ai/moondream-server) – a free app you can download and run anywhere, or run against the [Moondream Cloud](https://moondream.ai/cloud), which offers a free tier.
+The examples in this project work with Python, Node, and Bash. Most examples are configured to run against moondream locally using the [Moondream Server](https://moondream.ai/moondream-server) – a free app you can download and run anywhere, or run against the [Moondream Cloud](https://moondream.ai/cloud), which offers a free tier.
 
 #### How to use this project
 

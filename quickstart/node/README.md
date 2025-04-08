@@ -1,4 +1,4 @@
-# Moondream Python Quickstart
+# Moondream Node Quickstart
 
 Get started with Moondream's vision AI in Node in minutes.
 
@@ -15,7 +15,9 @@ Get started with Moondream's vision AI in Node in minutes.
    npm install
    ```
 
-3. Run the examples to see Moondream in action!
+3. Tweak the `main.js` code if you want to run it on cloud.
+
+4. Run the examples to see Moondream in action!
 
    ```bash
    node main.py

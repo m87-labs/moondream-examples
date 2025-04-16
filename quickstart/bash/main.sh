@@ -1,7 +1,7 @@
 # Example cURL Request
 
 ## To run locally
-curl --location with "http://localhost:2020" \
+curl --location with "http://localhost:2020/v1/{endpoint}" \
   --header 'Content-Type: application/json' \
   --data '{
     "image_url": "data:image/jpeg;base64,${cat ../images/frieren.jpg | base64}",

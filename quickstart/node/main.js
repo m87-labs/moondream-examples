@@ -2,7 +2,7 @@ import { vl } from "moondream";
 import fs from "fs";
 
 // this will run it against a local Moondream Server
-const model = new vl({ endpoint: "http://localhost:2020" });
+const model = new vl({ endpoint: "http://localhost:2020/v1" });
 
 // ...uncomment this line if you prefer to run it against Moondream Cloud
 // const model = new vl({ apiKey: "<your-api-key>" });

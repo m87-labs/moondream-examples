@@ -15,11 +15,11 @@ Moondream is a state-of-the-art Vision Language Model that combines multiple vis
 
 #### Prerequisites
 
-The examples in this project work with Python, Node, and Bash. Most examples are configured to run against moondream locally using the [Moondream Server](https://moondream.ai/moondream-server) – a free app you can download and run anywhere, or run against the [Moondream Cloud](https://moondream.ai/cloud), which offers a free tier.
+The examples in this project work with Python, Node, and Bash. Most examples are configured to run against Moondream locally using [Moondream Station](https://moondream.ai/station) – a free Mac/Ubuntu app, or run against the [Moondream Cloud](https://moondream.ai/cloud), which offers a free tier.
 
 #### How to use this project
 
-Browse the examples contained. Each contains working code so you can run it, and modify to get what you need running.
+Browse the examples contained, each one is fully functional, so you can run them as-is and tweak the code to suit your needs.
 
 - **QuickStart**: A hello world example showing how to call the model
 
@@ -30,4 +30,3 @@ Saw an error, or have an idea on how to improve these examples? We'd love your c
 ### License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-d

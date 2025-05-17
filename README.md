@@ -22,7 +22,7 @@ The examples in this project work with Python, Node, and Bash. Most examples are
 Browse the examples contained, each one is fully functional, so you can run them as-is and tweak the code to suit your needs.
 
 - **QuickStart**: A hello world example showing how to call the model
-- **Detect Cars Tutorial**: Notebook showing how to detect cars in images and save the results
+- **Detect Cars Tutorial**: Notebook demonstrating caption, query, detect, and point while processing car images
 
 ### Contributing
 

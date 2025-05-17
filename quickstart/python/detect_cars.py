@@ -3,8 +3,10 @@ import json
 from PIL import Image, ImageDraw
 import moondream as md
 
-# This example detects cars in all images in a folder.
-# It saves overlay images with bounding boxes and a JSON summary.
+# This example shows off every vision capability on a folder of images.
+# For each image we generate a caption, answer a question, detect cars,
+# and point to the center of each car. The results are written to JSON
+# and overlay images with bounding boxes and points are saved.
 
 # Initialize Moondream for local inference
 model = md.vl(endpoint="http://localhost:2020/v1")
@@ -25,8 +27,11 @@ for file_name in os.listdir(INPUT_FOLDER):
     input_path = os.path.join(INPUT_FOLDER, file_name)
     image = Image.open(input_path)
 
-    # Detect cars in the image
+    # Run all capabilities on the image
+    caption = model.caption(image)["caption"]
+    answer = model.query(image, "What's in this image?")["answer"]
     detection = model.detect(image, "car")["objects"]
+    points = model.point(image, "car")["points"]
 
     # Draw bounding boxes on a copy of the image
     overlay = image.copy()
@@ -37,6 +42,12 @@ for file_name in os.listdir(INPUT_FOLDER):
             outline="red",
             width=3,
         )
+    for point in points:
+        r = 4
+        draw.ellipse(
+            [point["x"] - r, point["y"] - r, point["x"] + r, point["y"] + r],
+            fill="blue",
+        )
 
     output_path = os.path.join(OUTPUT_FOLDER, file_name)
     overlay.save(output_path)
@@ -44,7 +55,10 @@ for file_name in os.listdir(INPUT_FOLDER):
     results.append({
         "original": input_path,
         "overlay": output_path,
+        "caption": caption,
+        "answer": answer,
         "boxes": detection,
+        "points": points,
     })
 
 # Save detection results to JSON

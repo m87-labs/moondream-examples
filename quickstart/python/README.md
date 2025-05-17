@@ -6,7 +6,7 @@ Get started with Moondream's vision AI in Python in minutes.
 
 1. Choose your deployment:
 
-   - **Local**: Install [Moondream Server](https://moondream.ai/moondream-server)
+   - **Local**: Install [Moondream Server](https://moondream.ai/station)
    - **Cloud**: Get an API key from [Moondream Cloud](https://moondream.ai/cloud)
 
 2. Install dependencies:

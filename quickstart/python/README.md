@@ -23,9 +23,9 @@ Get started with Moondream's vision AI in Python in minutes.
    python main.py
    ```
 
-5. Detect cars in all images in the `../images` folder:
+5. Try the full tutorial in the `../images` folder:
 
-   Open the `detect_cars.ipynb` notebook in Jupyter and run all the cells:
+   Open the `detect_cars.ipynb` notebook in Jupyter and run all the cells to see caption, query, detect and point in action:
 
    ```bash
    jupyter notebook detect_cars.ipynb

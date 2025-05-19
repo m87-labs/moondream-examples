@@ -23,14 +23,10 @@ Get started with Moondream's vision AI in Python in minutes.
    python main.py
    ```
 
-5. Try the full tutorial in the `../images` folder:
+5. Try a full tutorial:
 
-   Open the `detect_cars.ipynb` notebook in Jupyter and run all the cells to see caption, query, detect and point in action:
+   Open the `detect_cars.ipynb` notebook in Jupyter and run all the cells to try caption, query, detect and point capabilities:
 
    ```bash
    jupyter notebook detect_cars.ipynb
    ```
-
-The tutorial demonstrates that bounding box and point coordinates are returned
-as proportions of the image. The notebook converts them to pixel coordinates
-before drawing overlays.

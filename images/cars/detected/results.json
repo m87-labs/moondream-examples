@@ -1,0 +1,100 @@
+[
+  {
+    "original": "../../images/cars/img3.jpeg",
+    "overlay": "../../images/cars/detected/img3.jpeg",
+    "caption": " The image captures a vibrant street scene, likely in a downtown area. The street is lined with brick buildings, some of which feature colorful murals, including a mural depicting a woman with a dragon-like creature. The buildings are adorned with various signs and advertisements, including a \"Welcome to Mexico\" sign. The street is paved with brick or stone and has a sidewalk on the right side. Several cars are parked along the street, and a few people are walking on the sidewalk. A person is also riding a bicycle on the street. The sky is a clear blue, and the overall impression is of a lively and bustling downtown area.",
+    "answer": " Yes, there are cars in the image, parked along the street and driving down the road.",
+    "boxes": [
+      {
+        "x_min": 0.000905059278011322,
+        "y_min": 0.422283049672842,
+        "x_max": 0.15925119072198868,
+        "y_max": 0.540607575327158
+      },
+      {
+        "x_min": 0.08035768568515778,
+        "y_min": 0.4003964513540268,
+        "x_max": 0.20870481431484222,
+        "y_max": 0.5195254236459732
+      },
+      {
+        "x_min": 0.2521228455007076,
+        "y_min": 0.4203340597450733,
+        "x_max": 0.3728771544992924,
+        "y_max": 0.5093534402549267
+      },
+      {
+        "x_min": 0.6549904532730579,
+        "y_min": 0.4115312173962593,
+        "x_max": 0.7219626717269421,
+        "y_max": 0.4947187826037407
+      },
+      {
+        "x_min": 0.8035417348146439,
+        "y_min": 0.4196639135479927,
+        "x_max": 0.8839582651853561,
+        "y_max": 0.5236954614520073
+      },
+      {
+        "x_min": 0.8767267353832722,
+        "y_min": 0.4011092260479927,
+        "x_max": 0.9455388896167278,
+        "y_max": 0.5051407739520073
+      }
+    ],
+    "points": [
+      {
+        "x": 0.0751953125,
+        "y": 0.4833984375
+      },
+      {
+        "x": 0.16015625,
+        "y": 0.4599609375
+      },
+      {
+        "x": 0.3056640625,
+        "y": 0.4677734375
+      },
+      {
+        "x": 0.689453125,
+        "y": 0.4482421875
+      },
+      {
+        "x": 0.8388671875,
+        "y": 0.462890625
+      },
+      {
+        "x": 0.916015625,
+        "y": 0.4462890625
+      }
+    ]
+  },
+  {
+    "original": "../../images/cars/img2.jpg",
+    "overlay": "../../images/cars/detected/img2.jpg",
+    "caption": " The image shows a white Porsche Cayman sports car parked on a dirt road in a wooded area. The car is positioned slightly off-center to the left, facing towards the right side of the image. The car features a black roof and black rims, and a white rear wing. The car has a black front grille and black side skirts. The background is filled with trees and bushes, creating a natural setting. The car's headlights are on, and the shadows cast by the trees and bushes are visible on the road!",
+    "answer": " Yes, there is a white sports car in the image.",
+    "boxes": [
+      {
+        "x_min": 0.24769511818885803,
+        "y_min": 0.28330834209918976,
+        "x_max": 0.765976756811142,
+        "y_max": 0.7420822829008102
+      }
+    ],
+    "points": [
+      {
+        "x": 0.583984375,
+        "y": 0.5458984375
+      }
+    ]
+  },
+  {
+    "original": "../../images/cars/img1.png",
+    "overlay": "../../images/cars/detected/img1.png",
+    "caption": " The image shows a young man dressed in a black suit and white shirt, with a light gray or silver tie, giving a thumbs-up gesture with his right hand. He is smiling broadly, conveying a sense of joy and positivity. The background is a solid, neutral gray color, which contrasts with the man's vibrant attire and his cheerful expression.",
+    "answer": " No, there are no cars in the image. The image features a man in a suit giving a thumbs up.",
+    "boxes": [],
+    "points": []
+  }
+]

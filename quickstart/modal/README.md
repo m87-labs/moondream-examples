@@ -82,7 +82,21 @@ Modal will show your server URL at the start of execution. It may look something
 
 ## Inference
 
-To use moondream station, you can access the modal labs endpoint using our Python client.
+### Using Moondream Station CLI
+To use moondream station from the Moondream Station CLI, launch Moondream Station locally and then set the inference URL to the endpoint:
+
+```
+moondream> admin set-inference-url https://yourname--moondream-server-dev.modal.run/v1
+```
+
+Then continue to use moondream station normally:
+
+```
+moondream> query "What's in this image?" path/to/image.jpg
+```
+
+### Using Python Client
+You can also access the modal labs endpoint using our Python client.
 
 For example:
 ```python

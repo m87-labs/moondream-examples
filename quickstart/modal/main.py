@@ -12,8 +12,8 @@ image = Image.open("../images/frieren.jpg")
 answer = model.query(image, "What's in this image?")["answer"]
 
 # other functions:
-# answer = model.detect(image, object="cat")
-# answer = model.point(image, "cat")
+# answer = model.detect(image, object="burger")
+# answer = model.point(image, "burger")
 print(answer)
 
 # caption with streaming

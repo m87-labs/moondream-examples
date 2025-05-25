@@ -6,7 +6,7 @@ from PIL import Image
 model = md.vl(endpoint="https://username--moondream-server.modal.run/v1")
 
 # this will take a local image file and send it to moondream station on modal labs
-image = Image.open("/home/snow/Pictures/catmonitor.png")
+image = Image.open("../images/frieren.jpg")
 
 # query
 answer = model.query(image, "What's in this image?")["answer"]

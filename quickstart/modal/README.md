@@ -25,7 +25,12 @@ To access Modal Labs deployment tools, you need to install the library:
 
 #### **1. Deploying your Instance**:
 
-To launch Moondream Station on Modal Labs, tweak and run `deploy_moondream.py`:
+To launch Moondream Station on Modal Labs, first make sure you're in the correct repository:
+
+```
+cd quickstart/modal
+```
+Now, you can tweak and run `deploy_moondream.py`:
 
    ```bash
    modal deploy deploy_moondream.py

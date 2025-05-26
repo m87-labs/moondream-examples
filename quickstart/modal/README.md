@@ -28,7 +28,7 @@ To access Modal Labs deployment tools, you need to install the library:
 We can now create a program to host Moondream Station on Modal Labs, which will allow us to access Moondream from anywhere across the world. This is done by exposing the used by Moondream Station in the Modal Labs container using a webserver.
 
    ```python
-# moondream_station.py
+# deploy_moondream.py
 import modal
 import subprocess
 
@@ -59,21 +59,20 @@ def server():
     subprocess.Popen(["/moondream_station"])
 
    ```
-
-Note: For more functionalities like scaling, whitelisting, TCP tunnels, FastAPI support, check out [Modal Labs' documentation](https://modal.com/docs).
+You can also check out this code [here](quickstart/modal/deploy_moondream.py).
 
 #### **2. Deploying your Instance**:
 
 To deploy, simply execute the following:
    ```bash
-   modal deploy moondream_station.py
+   modal deploy deploy_moondream.py
    ```
 This launches Moondream Station on Modal Labs. 
 
 To see the deployment logs in-terminal, use :
 
 ```
-modal serve moondream_station.py
+modal serve deploy_moondream.py
 ```
 
 #### **Get your URL**
@@ -132,7 +131,7 @@ Then, you can use the call the python client. Here's an example of what that may
 
 For example:
 ```python
-# main.py
+# modal_infer.py
 import moondream as md
 from PIL import Image
 
@@ -143,15 +142,6 @@ image = Image.open("/path/to/image")
 # query
 answer = model.query(image, "What's in this image?")["answer"]
 print(answer)
-
-# streaming captions
-response = model.caption(image, "What's in this image?", stream=True)
-for chunk in response["answer"]:
-    print(chunk, end="", flush=True)
-
-answer = model.detect(image, object="object-name")
-print(answer)
-
-answer = model.point(image, "object-name")
-print(answer)
 ```
+
+You can check out this inference script [here](modal_infer.py).

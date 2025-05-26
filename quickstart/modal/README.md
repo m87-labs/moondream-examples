@@ -21,51 +21,16 @@ To access Modal Labs deployment tools, you need to install the library:
    ```
    This will open an authorization page in your web browser where you can authenticate your system with a login token.
 
-### **4. Launching a Moondream Station Instance**
+### **4. Launch a Moondream Station Instance**
 
-#### 1. Setup for Deployment
+#### **1. Deploying your Instance**:
 
-We can now create a program to host Moondream Station on Modal Labs, which will allow us to access Moondream from anywhere across the world. This is done by exposing the used by Moondream Station in the Modal Labs container using a webserver.
+To launch Moondream Station on Modal Labs, tweak and run `deploy_moondream.py`:
 
-   ```python
-# deploy_moondream.py
-import modal
-import subprocess
-
-app = modal.App("moondream")
-
-# this will create a container image on Modal Labs and install Moondream Station
-image = modal.Image.from_registry("ubuntu:22.04", add_python="3.11").run_commands(
-    [
-        "apt-get update && apt-get install -y curl",
-        "curl -fsSL https://depot.moondream.ai/station/install.sh | bash",
-    ]
-)
-
-@app.function(
-    image=image,
-    memory=4096, # change your alloted memory here
-    gpu="L4", # change your GPU here
-    timeout=86400,
-    # scaling parameters
-    min_containers=1, # control the minimum containers which are warm at any time
-    max_containers=1, # the max number of containers which your app can scale up to
-    scaledown_window=300 # the max number of seconds containers remain idle before scaling down
-)
-
-@modal.web_server(2020, startup_timeout=300.0)
-def server():
-    subprocess.Popen(["/moondream_station"])
-
-   ```
-You can also check out this code [here](quickstart/modal/deploy_moondream.py).
-
-#### **2. Deploying your Instance**:
-
-To deploy, simply execute the following:
    ```bash
    modal deploy deploy_moondream.py
    ```
+
 This launches Moondream Station on Modal Labs. 
 
 To see the deployment logs in-terminal, use :
@@ -74,7 +39,7 @@ To see the deployment logs in-terminal, use :
 modal serve deploy_moondream.py
 ```
 
-#### **3. Get your URL**
+#### **2. Get your URL**
 Modal will show your server URL at the start of execution. Make sure to copy this URL as you will need this to access the Moondream Station instance.
 
 ![alt text](readme-images/example-image.png)

@@ -19,10 +19,14 @@ The examples in this project work with Python, Node, and Bash. Most examples are
 
 #### How to use this project
 
-Browse the examples contained, each one is fully functional, so you can run them as-is and tweak the code to suit your needs.
+Browse the examples below. Each one is fully functional and ready to run or modify:
 
-- **QuickStart**: A hello world example showing how to call the model
- - **Detect Cars Tutorial**: Notebook demonstrating caption, query, detect, and point while processing car images. Bounding boxes are normalized so the notebook converts them to pixels for overlays.
+| Example        | Description                                                                                                                                         |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **[QuickStart](quickstart/python/README.md)** | A hello world example showing how to call the model.                                                                                                |
+| **[Car Detection](quickstart/python/detect_cars.ipynb)** | Notebook demonstrating caption, query, detect, and point while processing car images. Bounding boxes are normalized and converted to pixels for overlays. |
+| **[Node.js](quickstart/node/README.md)** | Demonstrates how to interact with Moondream in a Node environment. |
+| **[Modal Labs](quickstart/modal/README.md)** | Examples showing how to host and use Moondream Station on the cloud using Modal Labs.|
 
 ### Contributing
 

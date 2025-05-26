@@ -1,6 +1,6 @@
 # Deploy Moondream Station on Modal Labs
 
-Deploy Moondream vision AI as a web service with GPU acceleration.
+Get Moondream Station running in the cloud with Modal Labs—no hassle, just fast, scalable AI you can access from anywhere. This quick guide shows you how.
 
 ## Setting Up
 

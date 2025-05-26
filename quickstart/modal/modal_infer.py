@@ -5,7 +5,7 @@ from PIL import Image
 # make sure to add /v1 at the end of the URL like shown below.
 # your endpoint URL may look different, depending on your setup
 # replace "username" with your actual username on modal labs
-model = md.vl(endpoint="https://ethan-4--moondream-server-dev.modal.run")
+model = md.vl(endpoint="https://yourname--moondream-server.modal.run")
 
 image = Image.open("../../images/frieren.jpg")
 

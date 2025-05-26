@@ -93,7 +93,7 @@ You can also access the modal labs endpoint using our Python client.
 You will need to install the required libraries first:
 
 ```
-pip install -r requirements.txt
+pip install moondream pillow
 ```
 
 Then, you can use the call the python client. Here's an example of what that may look like:

@@ -15,7 +15,7 @@ image = modal.Image.from_registry("ubuntu:22.04", add_python="3.11").run_command
 @app.function(
     image=image,
     memory=4096,
-    gpu="A10G",
+    gpu="L4",
     timeout=86400,
     min_containers=1,
     max_containers=1,

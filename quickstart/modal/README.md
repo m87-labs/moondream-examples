@@ -42,7 +42,6 @@ image = modal.Image.from_registry("ubuntu:22.04", add_python="3.11").run_command
     ]
 )
 
-
 @app.function(
     image=image,
     memory=4096, # change your alloted memory here
@@ -75,7 +74,7 @@ To see the deployment logs in-terminal, use :
 modal serve deploy_moondream.py
 ```
 
-#### **Get your URL**
+#### **3. Get your URL**
 Modal will show your server URL at the start of execution. Make sure to copy this URL as you will need this to access the Moondream Station instance.
 
 ![alt text](readme-images/example-image.png)
@@ -90,7 +89,7 @@ It may look something like:
    ```
    This is your permanent service endpoint.
 
-#### **Stopping your Instance**:
+#### **4. Stopping your Instance**:
 
 To stop your instance, run:
 

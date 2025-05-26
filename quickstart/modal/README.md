@@ -47,7 +47,7 @@ modal serve deploy_moondream.py
 #### **2. Get your URL**
 Modal will show your server URL at the start of execution. Make sure to copy this URL as you will need this to access the Moondream Station instance.
 
-![alt text](readme-images/example-image.png)
+![alt text](../../images/modal/example-image.png)
 
 It may look something like:
    ```

@@ -15,7 +15,7 @@ To access Modal Labs deployment tools, you need to install the library:
    ```
 
 ### **3. Login**
-   To connect your computer to your modal labs account, run:
+   To connect your computer to your Modal Labs account, run:
    ```bash
    modal token new
    ```
@@ -41,12 +41,13 @@ This creates a permanent deployment on Modal Labs that continues running even af
 
 
 **B)  Development Mode**
+
 For development and testing with live logs in terminal:
 
 ```
 modal serve deploy_moondream.py
 ```
-This runs the app while streaming logs directly to your terminal. The deployment stops when you terminate the command (Ctrl+C).
+This runs the app while streaming logs directly to your terminal. The deployment stops when you terminate the command `Ctrl+C`.
 
 #### **2. Get your URL**
 Modal will show your server URL at the start of execution. Make sure to copy this URL as you will need this to access the Moondream Station instance.
@@ -79,20 +80,20 @@ You may also locate and stop the app from your Modal Labs dashboard.
 ## Inference
 
 ### Using Moondream Station CLI
-To use moondream station from the Moondream Station CLI, launch Moondream Station locally and then set the inference URL to the endpoint. **Make sure to add `/v1` in front of the url that you copied.**
+To use Moondream Station from the Moondream Station CLI, launch Moondream Station locally and then set the inference URL to the endpoint. **Make sure to add `/v1` in front of the url that you copied.**
 
 ```
 moondream> admin set-inference-url https://yourname--moondream-server-dev.modal.run/v1
 ```
 
-Then continue to use moondream station normally:
+Then continue to use Moondream Station normally:
 
 ```
 moondream> query "What's in this image?" path/to/image.jpg
 ```
 
 ### Using Python Client
-You can also access the modal labs endpoint using our Python client.
+You can also access the Modal Labs endpoint using our Python client.
 
 You will need to install the required libraries first:
 
@@ -107,7 +108,7 @@ Then, you can use the call the python client. Here's an example of what that may
 import moondream as md
 from PIL import Image
 
-# to use with the example code, make sure to add /v1 at the end
+# To use with the example code, make sure to add /v1 at the end.
 model = md.vl(endpoint="https://yourname--moondream-server-dev.modal.run/v1")
 image = Image.open("/path/to/image")
 

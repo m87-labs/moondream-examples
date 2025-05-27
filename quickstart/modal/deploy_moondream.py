@@ -3,7 +3,7 @@ import subprocess
 
 app = modal.App("moondream")
 
-# this will create a container image on Modal Labs and install Moondream Station
+# This will create a container image on Modal Labs and install Moondream Station.
 image = modal.Image.from_registry("ubuntu:22.04", add_python="3.11").run_commands(
     [
         "apt-get update && apt-get install -y curl",
@@ -14,16 +14,16 @@ image = modal.Image.from_registry("ubuntu:22.04", add_python="3.11").run_command
 
 @app.function(
     image=image,
-    memory=4096,  # change your alloted memory here
-    gpu="L4",  # change your GPU here
+    memory=4096,  # Change your alloted memory here.
+    gpu="L4",  # Change your GPU here.
     timeout=86400,
-    # scaling parameters
-    min_containers=1,  # control the minimum containers which are warm at any time
-    max_containers=1,  # the max number of containers which your app can scale up to
-    scaledown_window=300,  # the max number of seconds containers remain idle before scaling down
+    # Scaling parameters.
+    min_containers=1,  # Control the minimum containers which are warm at any time.
+    max_containers=1,  # The max number of containers which your app can scale up to.
+    scaledown_window=300,  # The max number of seconds containers remain idle before scaling down.
 )
 
-# this web server exposes the port Moondream Station is running on to the internet
+# This exposes the port Moondream Station is running on to the internet.
 @modal.web_server(2020, startup_timeout=300.0)
 def server():
     subprocess.Popen(["/moondream_station"])

@@ -38,7 +38,7 @@ Now, you can tweak and run `deploy_moondream.py`:
 
 This launches Moondream Station on Modal Labs. 
 
-To see the deployment logs in-terminal, use :
+Or, to see the deployment logs in-terminal, use :
 
 ```
 modal serve deploy_moondream.py
@@ -112,4 +112,4 @@ answer = model.query(image, "What's in this image?")["answer"]
 print(answer)
 ```
 
-You can check out this inference script [here](modal_infer.py).
+Check out the python demo for more examples [here](modal_infer.py).

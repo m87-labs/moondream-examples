@@ -38,7 +38,7 @@ Now, you can tweak and run `deploy_moondream.py`:
 
 This launches Moondream Station on Modal Labs. 
 
-Or, to see the deployment logs in-terminal, use :
+Or instead, you can also launch it using the following commmand to see the deployment logs in-terminal:
 
 ```
 modal serve deploy_moondream.py

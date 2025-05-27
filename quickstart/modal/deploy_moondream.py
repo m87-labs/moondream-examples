@@ -23,7 +23,7 @@ image = modal.Image.from_registry("ubuntu:22.04", add_python="3.11").run_command
     scaledown_window=300,  # The max number of seconds containers remain idle before scaling down.
 )
 
-# This exposes the port Moondream Station is running on to the internet.
+# This exposes the port Moondream Station is running on.
 @modal.web_server(2020, startup_timeout=300.0)
 def server():
     subprocess.Popen(["/moondream_station"])

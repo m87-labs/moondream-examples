@@ -14,7 +14,7 @@ print(answer)
 
 # Streaming captions
 response = model.caption(image, "What's in this image?", stream=True)
-for chunk in response["answer"]:
+for chunk in response["caption"]:
     print(chunk, end="", flush=True)
 
 # You can use your own object name in the object parameter.

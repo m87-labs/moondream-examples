@@ -56,11 +56,11 @@ Modal will show your server URL at the start of execution. Make sure to copy thi
 
 It may look something like:
    ```
-   https://yourname--moondream-server-dev.modal.run
+   https://<username>--moondream-server-dev.modal.run
    ```
    or
    ```
-   https://yourname--moondream-server.modal.run
+   https://<username>--moondream-server.modal.run
    ```
    This is your permanent service endpoint.
 
@@ -80,10 +80,10 @@ You may also locate and stop the app from your Modal Labs dashboard.
 ## Inference
 
 ### Using Moondream Station CLI
-To use Moondream Station from the Moondream Station CLI, launch Moondream Station locally and then set the inference URL to the endpoint. **Make sure to add `/v1` in front of the url that you copied.**
+To use Moondream Station from the Moondream Station CLI, launch Moondream Station locally and then set the inference URL to the endpoint. **Make sure to add `/v1` to the end of the url that you copied.**
 
 ```
-moondream> admin set-inference-url https://yourname--moondream-server-dev.modal.run/v1
+moondream> admin set-inference-url https://<username>--moondream-server-dev.modal.run/v1
 ```
 
 Then continue to use Moondream Station normally:
@@ -109,7 +109,7 @@ import moondream as md
 from PIL import Image
 
 # To use with the example code, make sure to add /v1 at the end.
-model = md.vl(endpoint="https://yourname--moondream-server-dev.modal.run/v1")
+model = md.vl(endpoint="https://<username>--moondream-server-dev.modal.run/v1")
 image = Image.open("/path/to/image")
 
 # query

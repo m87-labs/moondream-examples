@@ -9,18 +9,22 @@ model = md.vl(endpoint="https://<username>--moondream-server.modal.run/v1")
 image = Image.open("../../images/frieren.jpg")
 
 # Query
+print("Query:")
 answer = model.query(image, "What's in this image?")["answer"]
 print(answer)
 
 # Streaming captions
-response = model.caption(image, "What's in this image?", stream=True)
+print("\nCaption Stream:")
+response = model.caption(image, stream=True)
 for chunk in response["caption"]:
     print(chunk, end="", flush=True)
 
 # You can use your own object name in the object parameter.
-answer = model.detect(image, object="burger")
-print(answer)
+print("\nDetect:")
+response = model.detect(image, object="burger")
+print(response)
 
 # Similar to detect, you can use your own object name in object parameter.
-answer = model.point(image, object="object-name")
-print(answer)
+print("\nPoint:")
+response = model.point(image, object="object-name")
+print(response)

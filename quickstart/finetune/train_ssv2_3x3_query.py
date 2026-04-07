@@ -26,11 +26,11 @@ import moondream as md
 QUESTION = "This is a 3x3 grid of frames from a video. What action is happening?"
 
 STEPS = 20
-BATCH_SIZE = 16
+BATCH_SIZE = 128
 EVAL_EVERY = 5
 EVAL_LIMIT = 100
-LR = 2e-5
-RANK = 8
+LR = 2e-4
+RANK = 32
 SEED = 42
 MAX_TOKENS = 20
 

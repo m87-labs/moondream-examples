@@ -105,77 +105,41 @@ def quantize_size(value):
     return max(0, min(1023, int(round((math.log2(value) + 10) / 10 * 1023))))
 
 
-def pad_boxes(boxes, target_boxes):
-    padded = list(boxes[:target_boxes])
-    while len(padded) < target_boxes:
-        padded.append({"x_min": 0.0, "y_min": 0.0, "x_max": 0.0, "y_max": 0.0})
-    return padded
-
-
 def encode_boxes(boxes, target_boxes):
+    boxes = list(boxes[:target_boxes])
+    while len(boxes) < target_boxes:
+        boxes.append({"x_min": 0.0, "y_min": 0.0, "x_max": 0.0, "y_max": 0.0})
+
     coords = []
     sizes = []
-    for box in boxes[:target_boxes]:
+    for box in boxes:
         x_center = (box["x_min"] + box["x_max"]) / 2.0
         y_center = (box["y_min"] + box["y_max"]) / 2.0
         width = box["x_max"] - box["x_min"]
         height = box["y_max"] - box["y_min"]
         coords.extend([quantize_coord(x_center), quantize_coord(y_center)])
         sizes.append([quantize_size(width), quantize_size(height)])
-
-    while len(sizes) < target_boxes:
-        coords.extend([0, 0])
-        sizes.append([0, 0])
-
-    return coords, sizes
+    return boxes, coords, sizes
 
 
-def rollout_box_count(rollout):
-    coords = rollout.get("coords", [])
-    sizes = rollout.get("sizes", [])
-    if len(coords) % 2 != 0:
-        return None
-    coord_boxes = len(coords) // 2
-    if sizes and coord_boxes and len(sizes) != coord_boxes:
-        return None
-    if sizes:
-        return len(sizes)
-    if coord_boxes:
-        return coord_boxes
-    return len(rollout.get("output", {}).get("objects", []))
-
-
-def detect_token_ids(rollout):
-    tokens = rollout.get("answer_tokens", [])
-    if len(tokens) < 3:
-        return None
-    return tokens[0], tokens[2]
-
-
-def build_ground_truth_rollout(rollout, gt_boxes, target_boxes):
-    token_ids = detect_token_ids(rollout)
-    if token_ids is None:
-        return None
-
-    coord_id, size_id = token_ids
-    injected_boxes = pad_boxes(gt_boxes, target_boxes)
-    coords, sizes = encode_boxes(injected_boxes, target_boxes)
+def build_ground_truth_rollout(rollout, gt_boxes):
+    target_boxes = len(rollout["sizes"]) or len(gt_boxes)
+    coord_id = rollout["answer_tokens"][0]
+    size_id = rollout["answer_tokens"][2]
+    boxes, coords, sizes = encode_boxes(gt_boxes, target_boxes)
     return {
-        "skill": rollout.get("skill", "detect"),
+        "skill": rollout["skill"],
         "finish_reason": rollout["finish_reason"],
-        "output": {"objects": injected_boxes},
+        "output": {"objects": boxes},
         "answer_tokens": [coord_id, coord_id, size_id] * target_boxes,
-        "thinking_tokens": list(rollout.get("thinking_tokens", [])),
-        "has_answer_separator": rollout.get("has_answer_separator", False),
+        "thinking_tokens": list(rollout["thinking_tokens"]),
+        "has_answer_separator": rollout["has_answer_separator"],
         "coords": coords,
         "sizes": sizes,
     }
 
 
 def maybe_inject_ground_truth(rollouts, rewards, gt_boxes):
-    if not rollouts or not rewards:
-        return rollouts, rewards, 0
-
     reward_std = statistics.pstdev(rewards) if len(rewards) > 1 else 0.0
     max_reward = max(rewards)
     if (
@@ -185,21 +149,9 @@ def maybe_inject_ground_truth(rollouts, rewards, gt_boxes):
         return rollouts, rewards, 0
 
     replace_idx = min(range(len(rewards)), key=rewards.__getitem__)
-    target_boxes = rollout_box_count(rollouts[replace_idx]) or len(gt_boxes)
-    if target_boxes <= 0:
-        return rollouts, rewards, 0
-
-    injected_rollout = build_ground_truth_rollout(
-        rollouts[replace_idx],
-        gt_boxes,
-        target_boxes,
-    )
-    if injected_rollout is None:
-        return rollouts, rewards, 0
-
     rollouts = list(rollouts)
     rewards = list(rewards)
-    rollouts[replace_idx] = injected_rollout
+    rollouts[replace_idx] = build_ground_truth_rollout(rollouts[replace_idx], gt_boxes)
     rewards[replace_idx] = max(
         0.5,
         min(1.0, GROUND_TRUTH_INJECTION_REWARD_SCALE * max_reward),

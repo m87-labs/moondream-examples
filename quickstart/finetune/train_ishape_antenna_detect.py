@@ -9,7 +9,7 @@ To run with a local moondream-python checkout:
     PYTHONPATH=/path/to/moondream-python python train_ishape_antenna_detect.py
 
 Set MOONDREAM_API_KEY.
-Optional: HF_TOKEN, MOONDREAM_TUNING_ENDPOINT.
+Optional: HF_TOKEN.
 """
 
 import io
@@ -40,12 +40,6 @@ MAX_OBJECTS = None
 GROUND_TRUTH_INJECTION_STD_THRESH = 0.1
 GROUND_TRUTH_INJECTION_MAX_REWARD = 0.4
 GROUND_TRUTH_INJECTION_REWARD_SCALE = 2.0
-
-TUNING_ENDPOINT = os.environ.get(
-    "MOONDREAM_TUNING_ENDPOINT",
-    "https://api.moondream.ai/v1/tuning",
-)
-
 
 def decode_image(image):
     if isinstance(image, Image.Image):
@@ -192,7 +186,6 @@ def main():
 
     ft = md.ft(
         api_key=os.environ["MOONDREAM_API_KEY"],
-        endpoint=TUNING_ENDPOINT,
         name=f"ishape-antenna-detect-{int(time.time())}",
         rank=RANK,
     )

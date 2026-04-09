@@ -9,7 +9,7 @@ To run with a local moondream-python checkout:
     PYTHONPATH=/path/to/moondream-python python train_ishape_logs_detect.py
 
 Set MOONDREAM_API_KEY.
-Optional: HF_TOKEN, MOONDREAM_TUNING_ENDPOINT.
+Optional: HF_TOKEN.
 """
 
 import io
@@ -35,12 +35,6 @@ RANK = 8
 SEED = 42
 MAX_TOKENS = 256
 MAX_OBJECTS = None
-
-TUNING_ENDPOINT = os.environ.get(
-    "MOONDREAM_TUNING_ENDPOINT",
-    "https://api.moondream.ai/v1/tuning",
-)
-
 
 def decode_image(image):
     if isinstance(image, Image.Image):
@@ -124,7 +118,6 @@ def main():
 
     ft = md.ft(
         api_key=os.environ["MOONDREAM_API_KEY"],
-        endpoint=TUNING_ENDPOINT,
         name=f"ishape-logs-detect-{int(time.time())}",
         rank=RANK,
     )

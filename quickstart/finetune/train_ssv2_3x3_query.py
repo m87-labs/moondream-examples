@@ -9,7 +9,7 @@ To run with a local moondream-python checkout:
     PYTHONPATH=/path/to/moondream-python python train_ssv2_3x3_query.py
 
 Set MOONDREAM_API_KEY.
-Optional: HF_TOKEN, MOONDREAM_TUNING_ENDPOINT.
+Optional: HF_TOKEN.
 """
 
 import io
@@ -34,10 +34,6 @@ RANK = 32
 SEED = 42
 MAX_TOKENS = 20
 
-TUNING_ENDPOINT = os.environ.get(
-    "MOONDREAM_TUNING_ENDPOINT",
-    "https://api.moondream.ai/v1/tuning",
-)
 _NORMALIZE_RE = re.compile(r"[^a-z0-9]+")
 
 
@@ -144,7 +140,6 @@ def main():
 
     ft = md.ft(
         api_key=os.environ["MOONDREAM_API_KEY"],
-        endpoint=TUNING_ENDPOINT,
         name=f"ssv2-3x3-query-{int(time.time())}",
         rank=RANK,
     )

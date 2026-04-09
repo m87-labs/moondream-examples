@@ -9,7 +9,7 @@ To run with a local moondream-python checkout:
     PYTHONPATH=/path/to/moondream-python python train_geoguessr_countries_query.py
 
 Set MOONDREAM_API_KEY.
-Optional: HF_TOKEN, MOONDREAM_TUNING_ENDPOINT.
+Optional: HF_TOKEN.
 """
 
 import io
@@ -33,11 +33,6 @@ LR = 2e-5
 RANK = 8
 SEED = 42
 MAX_TOKENS = 10
-
-TUNING_ENDPOINT = os.environ.get(
-    "MOONDREAM_TUNING_ENDPOINT",
-    "https://api.moondream.ai/v1/tuning",
-)
 
 COUNTRY_ALIASES = {
     "czech republic": "czechia",
@@ -144,7 +139,6 @@ def main():
 
     ft = md.ft(
         api_key=os.environ["MOONDREAM_API_KEY"],
-        endpoint=TUNING_ENDPOINT,
         name=f"geoguessr-countries-query-{int(time.time())}",
         rank=RANK,
     )

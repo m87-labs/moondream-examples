@@ -9,7 +9,7 @@ To run with a local moondream-python checkout:
     PYTHONPATH=/path/to/moondream-python python train_glaucoma_query.py
 
 Set MOONDREAM_API_KEY.
-Optional: HF_TOKEN, MOONDREAM_TUNING_ENDPOINT.
+Optional: HF_TOKEN.
 """
 
 import os
@@ -35,10 +35,6 @@ SEED = 42
 MAX_TOKENS = 10
 
 VALID_STAGES = ("normal", "early", "advanced")
-TUNING_ENDPOINT = os.environ.get(
-    "MOONDREAM_TUNING_ENDPOINT",
-    "https://api.moondream.ai/v1/tuning",
-)
 
 
 def load_examples(target_split, limit=None, shuffle=False):
@@ -98,7 +94,6 @@ def main():
 
     ft = md.ft(
         api_key=os.environ["MOONDREAM_API_KEY"],
-        endpoint=TUNING_ENDPOINT,
         name=f"glaucoma-query-{int(time.time())}",
         rank=RANK,
     )
